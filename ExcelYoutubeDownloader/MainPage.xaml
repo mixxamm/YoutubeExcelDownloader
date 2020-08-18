@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="ExcelYoutubeDownloader.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ExcelYoutubeDownloader"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <Grid RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignVerticalCenterWithPanel="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="1" Content="Kies bestand" Name="KiesBestandButton" Click="KiesBestandButton_Click"/>
+            <TextBlock Grid.Row="2" Name="TextBlockItems"></TextBlock>
+            <ProgressBar Grid.Row="3" Width="200" Name="DownloadProgress" Value="0"></ProgressBar>
+        </Grid>
+    </RelativePanel>
+</Page>
