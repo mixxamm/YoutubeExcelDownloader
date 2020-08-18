@@ -106,7 +106,7 @@ namespace ExcelYoutubeDownloader
                                     var writeStream = await storageFile.OpenStreamForWriteAsync();
                                     await soundStream.CopyToAsync(writeStream);
                                     teller++;
-                                    DownloadProgress.Value = (teller + 0.0) / (aantalLinks + 0.0);
+                                    DownloadProgress.Value = (teller + 0.0) / (aantalLinks + 0.0) * 100;
                                     TextBlockItems.Text = $"{teller}/{aantalLinks} liedjes gedownload.";
                                 }
                             }
