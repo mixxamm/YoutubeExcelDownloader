@@ -88,6 +88,7 @@ namespace ExcelYoutubeDownloader
                         TextBlockItems.Text = "Bezig met downloaden.";
                         int aantalLinks = links.Count;
                         int teller = 0;
+                        int fouten = 0;
                         foreach (string link in links)
                         {
                             try
@@ -107,12 +108,14 @@ namespace ExcelYoutubeDownloader
                                     await soundStream.CopyToAsync(writeStream);
                                     teller++;
                                     DownloadProgress.Value = (teller + 0.0) / (aantalLinks + 0.0) * 100;
-                                    TextBlockItems.Text = $"{teller}/{aantalLinks} liedjes gedownload.";
+                                    TextBlockItems.Text = $"{teller - fouten}/{aantalLinks} liedjes gedownload." + (fouten > 0 ? $" Mislukt: {fouten}" : "");
                                 }
                             }
                             catch (Exception e)
                             {
                                 Debug.WriteLine(e);
+                                teller++;
+                                fouten++;
                             }
                         }
                     }
