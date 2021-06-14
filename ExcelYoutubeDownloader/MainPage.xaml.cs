@@ -95,7 +95,7 @@ namespace ExcelYoutubeDownloader
                             {
                                 var video = await youtube.Videos.GetAsync(link);
                                 var manifest = await youtube.Videos.Streams.GetManifestAsync(video.Id);
-                                var streamInfo = manifest.GetAudioOnly().WithHighestBitrate();
+                                var streamInfo = manifest.GetAudioOnlyStreams().GetWithHighestBitrate();
                                 if (streamInfo != null)
                                 {
                                     var soundStream = await youtube.Videos.Streams.GetAsync(streamInfo);
